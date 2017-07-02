@@ -1,6 +1,6 @@
 {
   "name": "byted-mobile-select",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "移动端select 插件",
   "main": "dist/moileselect.js",
   "scripts": {

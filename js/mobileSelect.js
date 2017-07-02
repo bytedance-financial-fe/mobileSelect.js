@@ -39,7 +39,7 @@ function MobileSelect() {
 		init: function(config){
 			var _this = this; 
 
-			_this.trigger = document.querySelector(config.trigger);
+			config.trigger && (_this.trigger = document.querySelector(config.trigger));
 			_this.wheel = getClass(_this.mobileSelect,'wheel');   //wheel 数组
 			_this.slider = getClass(_this.mobileSelect,'selectContainer'); // slider 数组
 			_this.wheels = _this.mobileSelect.querySelector('.wheels');   //wheels
@@ -53,7 +53,7 @@ function MobileSelect() {
 			_this.initPosition = config.position ? config.position : [];
 			_this.titleText = config.title ? config.title : '';
 
-			_this.trigger.style.cursor='pointer';
+			_this.trigger && (_this.trigger.style.cursor='pointer');
 			_this.setTitle(_this.titleText);
 			_this.checkCascade();
 
@@ -82,11 +82,11 @@ function MobileSelect() {
 		    	for(var i=0; i<_this.wheel.length; i++){
 		    		i==_this.wheel.length-1 ? tempValue += _this.getValue(i) : tempValue += _this.getValue(i)+' ';
 		    	}
-		    	_this.trigger.innerHTML = tempValue;
+		    	_this.trigger && (_this.trigger.innerHTML = tempValue);
 		    	_this.callback(_this.getIndexArr(),_this.getJson());
 		    });
 
-		    _this.trigger.addEventListener('click',function(){
+		    _this.trigger && _this.trigger.addEventListener('click',function(){
 		    	_this.mobileSelect.classList.add('mobileSelect-show');
 		    });
 		    _this.grayLayer.addEventListener('click',function(){
@@ -98,7 +98,9 @@ function MobileSelect() {
 
 			_this.fixRowStyle(); //修正列数
 		},
-
+    show: function(){
+      this.mobileSelect.classList.add('mobileSelect-show');
+    },
 		setTitle: function(string){
 			var _this = this;
 			_this.titleText = string;

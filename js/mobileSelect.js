@@ -3,8 +3,9 @@
  * (c) 2017-present onlyhom
  * Released under the MIT License.
  */
+import '../css/mobileSelect.css';
 
-window.MobileSelect = (function() {
+function MobileSelect() {
 
 	function getClass(dom,string) {
 		return dom.getElementsByClassName(string);
@@ -555,4 +556,6 @@ window.MobileSelect = (function() {
 	};
 
 	return MobileSelect;
-})();
+};
+const _MobileSelect = MobileSelect();
+export default _MobileSelect;

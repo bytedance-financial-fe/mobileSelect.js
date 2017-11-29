@@ -118,7 +118,7 @@ function MobileSelect() {
 		                '<div class="fixWidth">'+
 		                    '<div class="cancel">取消</div>'+
 		                    '<div class="title"></div>'+
-		                    '<div class="ensure">选择</div>'+
+		                    '<div class="ensure">完成</div>'+
 		                '</div>'+
 		            '</div>'+
 		            '<div class="panel">'+

@@ -100,7 +100,10 @@ function MobileSelect() {
 		},
     show: function(){
       this.mobileSelect.classList.add('mobileSelect-show');
-    },
+		},
+		hide: function() {
+			this.mobileSelect.classList.remove('mobileSelect-show');
+		},
 		setTitle: function(string){
 			var _this = this;
 			_this.titleText = string;

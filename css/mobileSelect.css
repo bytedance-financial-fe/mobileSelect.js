@@ -1,10 +1,8 @@
 .mobileSelect {
   position: relative;
-  z-index: 0;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
+  opacity: 1;
+  z-index: 10000;
+  visibility: visible;
 }
 .mobileSelect .grayLayer {
   position: fixed;
@@ -12,21 +10,21 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: #eee;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 888;
-  display: block;
+  z-index: 999;
+  display: none;
 }
 .mobileSelect .content {
   width: 100%;
   display: block;
   position: fixed;
-  z-index: 889;
+  z-index: 1000;
   color: black;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  bottom: -350px;
-  left:0;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  left: 0;
   background: white;
 }
 .mobileSelect .content .fixWidth {
@@ -131,11 +129,12 @@
   opacity: 0.9;
   pointer-events: none;
 }
-.mobileSelect-show {
+.mobileSelect-show  .grayLayer {
+  display: block;
   opacity: 1;
-  z-index: 10000;
   visibility: visible;
 }
 .mobileSelect-show .content {
-  bottom: 0;
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
 }

@@ -413,11 +413,11 @@ function MobileSelect() {
 	    },
 
 	    updateCurDistance: function(theSlider, index){
-	        this.curDistance[index] = parseInt(theSlider.style.transform.split(',')[1]);
+        this.curDistance[index] = parseInt((theSlider.style.transform || theSlider.style.webkitTransform || '').split(',')[1]);
 	    },
 
 	    getDistance:function(theSlider){
-	    	return parseInt(theSlider.style.transform.split(',')[1]);
+	    	return parseInt((theSlider.style.transform || theSlider.style.webkitTransform || '').split(',')[1]);
 	    },
 
 	    getValue: function(sliderIndex){

@@ -43,7 +43,7 @@ function MobileSelect() {
 			_this.wheel = getClass(_this.mobileSelect,'wheel');   //wheel 数组
 			_this.slider = getClass(_this.mobileSelect,'selectContainer'); // slider 数组
 			_this.wheels = _this.mobileSelect.querySelector('.wheels');   //wheels
-			_this.liHeight = _this.mobileSelect.querySelector('li').offsetHeight;
+			_this.liHeight = (_this.mobileSelect.querySelector('li') || {}).offsetHeight;
 			_this.ensureBtn = _this.mobileSelect.querySelector('.ensure');
 			_this.closeBtn = _this.mobileSelect.querySelector('.cancel');
 			_this.grayLayer = _this.mobileSelect.querySelector('.grayLayer');

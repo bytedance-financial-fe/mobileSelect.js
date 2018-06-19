@@ -2,6 +2,7 @@
  * mobileSelect.js
  * (c) 2017-present onlyhom
  * Released under the MIT License.
+ * @TODO 问题有点多，待重构
  */
 import '../css/mobileSelect.css';
 
@@ -263,7 +264,7 @@ function MobileSelect() {
 				if (i == 0)
 					resultNode = _this.jsonData[posIndexArr[0]];
 				else {
-					resultNode = resultNode.childs[posIndexArr[i]];
+					resultNode = resultNode.childs ? resultNode.childs[posIndexArr[i]] : null;
 				}
 			}
 			_this.checkArrDeep(resultNode);
@@ -422,8 +423,14 @@ function MobileSelect() {
 
 	    getValue: function(sliderIndex){
 	    	var _this = this;
-	    	var index = _this.getIndex(_this.curDistance[sliderIndex]);
-	    	return _this.slider[sliderIndex].getElementsByTagName('li')[index].innerHTML;
+				var index = _this.getIndex(_this.curDistance[sliderIndex]);
+				let innerHTML
+				try {
+					innerHTML = _this.slider[sliderIndex].getElementsByTagName('li')[index].innerHTML
+				} catch (error) {
+					innerHTML = null
+				}
+	    	return innerHTML
 	    },
 
 	    touch: function(event, theSlider, index){

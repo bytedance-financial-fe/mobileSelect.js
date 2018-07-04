@@ -99,6 +99,7 @@
 }
 .mobileSelect .content .panel .wheel .selectContainer li {
   font-size: 15px;
+  color: rgb(153, 153, 153);
   display: block;
   height: 48px;
   line-height: 48px;
@@ -106,6 +107,13 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.mobileSelect .content .panel .wheel .selectContainer .selected{
+  font-size:17px ;
+  color:#000 ;
+  font-family: PingFangSC-Regular;
+  font-weight:600px ;
 }
 .mobileSelect .content .panel .selectLine {
   height: 48px;

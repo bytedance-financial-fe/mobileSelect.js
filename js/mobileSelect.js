@@ -359,8 +359,10 @@ function MobileSelect() {
 	    	var _this = this;
 	    	var temp = [];
 	    	for(var i=0; i<_this.curDistance.length; i++){
-	    		temp.push(_this.getIndex(_this.curDistance[i]));
-	    	}
+          temp.push(_this.getIndex(_this.curDistance[i]));
+          var lis = _this.slider[i].childNodes;
+          lis[_this.getIndex(_this.curDistance[i])].className += ' selected '
+        }
 	    	return temp;
 	    },
 
@@ -394,7 +396,9 @@ function MobileSelect() {
 	    	var temp = [];
 	    	for(var i=0; i<_this.slider.length; i++){
 	    		temp.push(_this.calcDistance(indexArr[i]));
-	    		_this.movePosition(_this.slider[i],temp[i]);
+          _this.movePosition(_this.slider[i],temp[i]);
+          var lis = _this.slider[i].childNodes;
+				  lis[indexArr[i]].className += ' selected '
 	    	}
 	    	_this.curDistance = temp;
 	    },
@@ -452,8 +456,12 @@ function MobileSelect() {
 			        _this.curDistance[index] = _this.fixPosition(_this.curDistance[index]);
 			        _this.movePosition(theSlider, _this.curDistance[index]);
 			        _this.oversizeBorder = -(theSlider.getElementsByTagName('li').length-3)*_this.liHeight; 
-
-
+              var lis = theSlider.childNodes
+              for (var i = 0; i < lis.length; i++) {
+                if (lis[i].classList.contains('selected') == true) {
+                  lis[i].classList.remove('selected')
+                }
+              }
 			        //反弹
 			        if(_this.curDistance[index] + _this.offsetSum > 2*_this.liHeight){
 			            _this.curDistance[index] = 2*_this.liHeight;
@@ -560,6 +568,13 @@ function MobileSelect() {
 	        	_this.checkRange(sliderIndex, tempPosArr);
 
 	        }else{
+            var Lis = theLi.parentNode.childNodes
+            for (var i = 0; i < Lis.length; i++) {
+              if (Lis[i].classList.contains('selected') == true) {
+              Lis[i].classList.remove('selected')
+            }
+          }
+            theLi.className += ' selected '
 		        _this.curDistance[sliderIndex] = (2-index)*_this.liHeight;
 		        _this.movePosition(theLi.parentNode, _this.curDistance[sliderIndex]);
 	        }

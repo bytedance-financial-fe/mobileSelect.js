@@ -1,5 +1,5 @@
 {
-  "name": "byted-mobile-select",
+  "name": "@byted/mselect",
   "version": "1.1.8",
   "description": "移动端select 插件",
   "main": "dist/moileselect.js",

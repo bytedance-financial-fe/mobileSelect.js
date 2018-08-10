@@ -357,11 +357,11 @@ function MobileSelect() {
 
 	    getIndexArr: function(){
 	    	var _this = this;
-	    	var temp = [];
+				var temp = [];
 	    	for(var i=0; i<_this.curDistance.length; i++){
           temp.push(_this.getIndex(_this.curDistance[i]));
           var lis = _this.slider[i].childNodes;
-          lis[_this.getIndex(_this.curDistance[i])].className += ' selected '
+          (lis[_this.getIndex(_this.curDistance[i])] || {}).className += ' selected '
         }
 	    	return temp;
 	    },

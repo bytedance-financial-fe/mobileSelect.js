@@ -12,7 +12,11 @@
   right: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  display: none;
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
 }
 .mobileSelect .content {
   width: 100%;
